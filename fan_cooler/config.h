@@ -12,11 +12,10 @@ public:
   const uint8_t version = 1;
   const uint8_t tempSensorPin = A0;
   const uint8_t fanPin = 6;
-  const uint8_t saveEveryXs = 8;
-  const int tempOffset = 200;
+  const uint8_t sleepTimeSec = 4;
 
-  int tempThreshold;
-  uint8_t tempHysteresisValue = 13;
+  float tempThreshold       = 30.0; // ºC
+  float tempHysteresisValue =  4.0; // ºC
 
 private:
   void loadConfig(uint8_t device);

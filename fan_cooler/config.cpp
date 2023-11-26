@@ -3,12 +3,12 @@
 void Config::loadConfig(uint8_t device) {
   switch (device) {
     case DEV_LIVING_ROOM:
-      tempThreshold = 340; // 347-354 ambient
-      tempHysteresisValue = 13;
+      tempThreshold       = 24.5; // ºC
+      tempHysteresisValue =  2.5; // ºC
       break;
     case DEV_BEDROOM:
-      tempThreshold = 330; // 310-324 ambient; before: 357
-      tempHysteresisValue = 18;
+      tempThreshold       = 24.0; // ºC
+      tempHysteresisValue =  2.5; // ºC
       break;
     default:
       Serial.print("ERR Unknown device: ");
@@ -33,15 +33,14 @@ void Config::print() {
   Serial.print(version);
   Serial.print(" ID:");
   Serial.print(deviceId());
-  Serial.print(" tempOffset:");
-  Serial.print(tempOffset);
   Serial.print(" threshold:");
   Serial.print(tempThreshold);
   Serial.print(" hysteresis:");
   Serial.print(tempHysteresisValue);
+  Serial.print(" sleepTimeSec:");
+  Serial.print(sleepTimeSec);
   Serial.print(" fanPin:");
   Serial.print(fanPin);
   Serial.print(" tempPin:");
-  Serial.println(tempSensorPin);
-
+  Serial.print(tempSensorPin);
 }

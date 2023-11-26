@@ -15,6 +15,7 @@ public:
   }
 
   void setState(bool on) {
+    Serial.print(" Fan: ");
     Serial.println(on ? "on": "off");
     digitalWrite(m_config->fanPin, on);
     digitalWrite(LED_BUILTIN, on);
