@@ -14,13 +14,17 @@ void setup() {
   Serial.begin(9600);
   Serial.println("setup() start");
 
-  history.print();
   config.loadConfigFromEeprom();
   config.print();
   
   fan.init(config);
+  fan.setState(true);
+
+  history.print();
 
   Serial.println("setup() done!");
+
+  sleep();
 }
 
 void loop() {
@@ -29,7 +33,7 @@ void loop() {
   bool fanValue = calcFanState(tempSensorValue);
 
   Serial.print("temp:");
-  Serial.print(tempSensorValue - config.tempOffset);
+  Serial.print(tempSensorValue);
   Serial.print(" ");
 
   fan.setState(fanValue);

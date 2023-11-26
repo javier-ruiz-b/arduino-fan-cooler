@@ -3,11 +3,11 @@
 void Config::loadConfig(uint8_t device) {
   switch (device) {
     case DEV_LIVING_ROOM:
-      tempThreshold = 363; // 347-354 ambient
+      tempThreshold = 340; // 347-354 ambient
       tempHysteresisValue = 13;
       break;
     case DEV_BEDROOM:
-      tempThreshold = 357; // 333-336 ambient
+      tempThreshold = 330; // 310-324 ambient; before: 357
       tempHysteresisValue = 18;
       break;
     default:
@@ -33,6 +33,8 @@ void Config::print() {
   Serial.print(version);
   Serial.print(" ID:");
   Serial.print(deviceId());
+  Serial.print(" tempOffset:");
+  Serial.print(tempOffset);
   Serial.print(" threshold:");
   Serial.print(tempThreshold);
   Serial.print(" hysteresis:");
